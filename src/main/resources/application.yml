@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: course-catelog-service
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: password
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/courses
+    username: postgres
+    password: qwerty
+  jpa:
+#    database: h2
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop # not recommended for prod.
+    show-sql: true
+    properties:
+        hibernate:
+          jdbc:
+            lob:
+              non_contextual_creation:true
+  h2:
+    console:
+      enabled: true
+message: Hello from default profile
+
+#
+#
+#
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: prod
+#message: Hello from prod profile
